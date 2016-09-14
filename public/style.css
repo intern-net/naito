@@ -2,7 +2,7 @@ body {
   max-width: 400px;
   margin: 40px auto;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
-  border-radius: 2px;
+/*   border-radius: 2px; */
   background: white;
   padding: 16px 24px;
 }
@@ -39,11 +39,11 @@ h1 {
   background-color: rgb(204,0,0);
 }
 
-#enterm{
+#entertainment{
   background-color: rgb(71,234,126);
 }
 
-#it{
+#IT{
   background-color: rgb(135,0,204);
 }
 
@@ -55,7 +55,7 @@ h1 {
   background-color: rgb(80,77,203);
 }
 
-#gurume{
+#gourmet{
   background-color: rgb(255,101,12);
 }
 

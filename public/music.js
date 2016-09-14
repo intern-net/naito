@@ -7,7 +7,7 @@ $(document).ready(function(){
 var audio = new Audio();
 audio.src = "audios/sample.wav";
 
-var onMusicClick = function(){
+function onMusicClick(){
   console.log("音楽スタート予定");
   var img = document.getElementById("mid");
   var imgPath = img.getAttribute("src");

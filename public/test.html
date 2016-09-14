@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="test.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    authDomain: "favst-dojo.firebaseapp.com",
+    databaseURL: "https://favst-dojo.firebaseio.com",
+    storageBucket: "favst-dojo.appspot.com",
+    messagingSenderId: "732756833582"
+  };
+  firebase.initializeApp(config);
+</script>
+</head>
+<body>
+  <h1>test</h1>
+  <hr>
+  <h2>test hidden</h2>
+  <img src="images/Start.jpg" id="img1">
+  <div id="no1">id:no1</div>
+  <div id="no2" class="c1">id:no2</div>
+  <div id="no3">id:no3</div>
+  <div class="c1">class C1</div>
+
+  <script>
+    var count = 0;
+    function rewrite2(){
+      if(count==0){
+        $("#img1").attr('src', 'images/stop.png');
+        count = 1;
+      }else if(count==1){
+        $("#img1").attr('src', 'images/Start.jpg');
+        count = 0;
+      }
+    };
+
+    function rewrite3(val){
+      console.log(val["data"][0].title);
+      console.log(val["data"][0].url);
+      console.log(val["data"].length);
+      var v = val["data"];
+      console.log(v.length);
+      console.log(v);
+      var at1 = "<a>";
+      var at2 = "</a>";
+      $("#no1").text("");
+      $("#no3").each(function())
+      $(at1+val["data"][0].title+at2).attr("href", val["data"][0].url).appendTo("#no1");
+      $("#no2").text("");
+      $(at1+val["data"][1].title+at2).attr("href", val["data"][1].url).appendTo("#no2");
+    };
+
+
+    $("#img1").on("click", rewrite2);
+
+    $.getJSON("http://localhost:5000/dammy.json",rewrite3);
+  </script>
+</body>
+</html>

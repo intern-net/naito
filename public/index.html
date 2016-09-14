@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <title>ListeNews</title>
   <link rel="stylesheet" type="text/css" href="style.css" media="screen">
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="example.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
 <body>
   <h1 class="header">favclip station</h1>
@@ -14,16 +13,16 @@
     <div>
       <table class="category">
         <tr>
-        <td id="all">ALL</td>
-          <td id="enterm">エンタメ</td>
+          <td id="all">ALL</td>
+          <td id="entertainment">エンタメ</td>
         </tr>
         <tr>
-          <td id="it">IT</td>
+          <td id="IT">IT</td>
           <td id="fashion">ファッション</td>
         </tr>
         <tr>
           <td id="news">ニュース</td>
-          <td id="gurume">グルメ</td>
+          <td id="gourmet">グルメ</td>
         </tr>
         <tr>
           <td id="sports">スポーツ</td>
@@ -36,8 +35,12 @@
       <img id="mid" src="images/Start.jpg" alt="start" onclick="onMusicClick()">
       <img id="front" src="images/front.png" alt="front">
     </div>
-    <div class="footer">
+    <div class="footer" id="ft">
+      <audio controls></audio>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+    <script type="text/javascript" src="firebase.js"></script>
+    <script type="text/javascript" src="music.js"></script>
   </div>
 </body>
 </html>

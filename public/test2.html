@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test2</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    authDomain: "favst-dojo.firebaseapp.com",
+    databaseURL: "https://favst-dojo.firebaseio.com",
+    storageBucket: "favst-dojo.appspot.com",
+    messagingSenderId: "732756833582"
+  };
+  firebase.initializeApp(config);
+
+  // ここから本処理
+  // var db = firebase.database();
+
+  // db.ref('/voices/all').once('value', function (snapshot) {
+  //   var obj = snapshot.val();
+  //   console.log(obj);
+  // });
+</script>
+</head>
+<body>
+  <h1>test2</h1>
+  <div id="g1">
+  </div>
+<!--   <script>
+    var db = firebase.database();
+
+    db.ref('/voices/all').once('value', function (snapshot) {
+      var obj = snapshot.val();
+      // console.log(obj);
+      // console.log(obj["5085267312508928"]);
+      // console.log(obj["5085267312508928"].linkURL);
+      // console.log(obj["5085267312508928"].title);
+      // console.log(obj["5085267312508928"].voiceURL);
+      // $("#g1").text(obj["5085267312508928"].voiceURL);
+      console.log(Object.keys(obj));
+      Object.keys(obj).forEach(function (id) {
+        var val = obj[id];
+        storage.refFromURL(val.voiceURL).getDownloadURL().then(function (voiceURL) {
+          console.log('ID:', id);
+          console.log('Title:', val.title);
+          console.log('LinkURL:', val.linkURL);
+          console.log('VoiceURL:', voiceURL);
+          console.log('=====================================================================');
+        });
+      });
+    });
+  </script> -->
+</body>
+</html>
