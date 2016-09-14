@@ -52,25 +52,51 @@ db.ref('/voices').once('value', function (snapshot) {
 
 
 //audio再生系
-var now_genre; //選ぶジャンル
-var now_url = [];
-var now_title = [];
-var now_voice = [];
+var now_genre = "no genre"; //選ぶジャンル
+var now_url;
+var now_title;
+var now_voice;
 
 var audio = new Audio();
 var num = 0;
-// audio.src = "audios/sample.wav";
+var flg = 0; //stop->0 start->1
 
 //click時
 $(document).ready(function(){
   $('.category tr td').on('click', function(){
     now_genre = $(this).attr("id");
+    if(voice_hash[now_genre].length > 2){
+        $('#listener').show();
+    }else{
+        $('#listener').hidden();
+    }
+    setGenre();
+    setTitle();
+    setAudio();
+});
+});
+
+function setGenre(){
     $("#genre").text(now_genre);
+};
+
+function setTitle(){
     $("#title").text(title_hash[now_genre][num]);
+};
+
+function setAudio(){
     audio.src = voice_hash[now_genre][num];
-    $('#listener').show();
-});
-});
+};
+
+function playAudio(){
+    audio.play();
+    flg=1;
+}
+
+function pauseAudio(){
+    audio.pause();
+    flg=0;
+}
 
 //再生ボタンclick
 function onMusicClick(){
@@ -78,22 +104,39 @@ function onMusicClick(){
   var imgPath = img.getAttribute("src");
   if(imgPath == "images/Start.jpg"){
     document.getElementById("mid").src = "images/stop.png";
-    audio.play();
+    playAudio();
     imgPath = img.getAttribute("src");
 }else if(imgPath == "images/stop.png"){
     document.getElementById("mid").src = "images/Start.jpg";
-    audio.pause();
+    pauseAudio();
     imgPath = img.getAttribute("src");
 }
 };
 
 //back button
 function onBackClick(){
-  audio.play();
+    if(num>1){
+        if(flg==1){
+            audio.pause();
+        }
+        num -= 1;
+        setTitle();
+        setAudio();
+        if(flg==1){
+            audio.play();
+        }
+    }
 };
 
 //next button
 function onNextClick(){
+    if(flg==1){
+        audio.pause();
+    }
     num += 1;
-    audio.play();
+    setTitle();
+    setAudio();
+    if(flg==1){
+        audio.play();
+    }
 };
