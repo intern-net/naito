@@ -3,32 +3,41 @@
 <head>
   <meta charset="utf-8">
   <title>ListeNews</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="example.js"></script>
 </head>
 <body>
-  <h1 class="header">fabclip station</h1>
+  <h1 class="header">favclip station</h1>
+  <hr>
   <div id="main">
     <div>
       <table class="category">
         <tr>
-          <td class="left" id="all">ALL</td>
-          <td class="right" id="enterm">エンタメ</td>
+        <td id="all">ALL</td>
+          <td id="enterm">エンタメ</td>
         </tr>
         <tr>
-          <td class="left" id="it">IT</td>
-          <td class="right" id="fashion">ファッション</td>
+          <td id="it">IT</td>
+          <td id="fashion">ファッション</td>
         </tr>
         <tr>
-          <td class="left" id="news">ニュース</td>
-          <td class="right" id="gurume">グルメ</td>
+          <td id="news">ニュース</td>
+          <td id="gurume">グルメ</td>
         </tr>
         <tr>
-          <td class="left" id="sports">スポーツ</td>
-          <td class="right" id="hobby">ホビー</td>
+          <td id="sports">スポーツ</td>
+          <td id="hobby">ホビー</td>
         </tr>
       </table>
     </div>
-    <script type="text/javascript" src="example.js"></script>
+    <div class="hidden" id="listener">
+      <img id="back" src="images/back.jpg" alt="back">
+      <img id="mid" src="images/Start.jpg" alt="start" onclick="onMusicClick()">
+      <img id="front" src="images/front.png" alt="front">
+    </div>
+    <div class="footer">
+    </div>
   </div>
 </body>
 </html>
