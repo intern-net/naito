@@ -61,6 +61,9 @@ var audio = new Audio();
 var num = 0;
 var flg = 0; //stop->0 start->1
 
+//音初期化
+audio.src = "audios/fail.mp4"
+
 //click時
 $(document).ready(function(){
   $('.category tr td').on('click', function(){
