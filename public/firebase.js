@@ -115,16 +115,14 @@ function onMusicClick(){
 
 //back button
 function onBackClick(){
-    if(num>1){
-        if(flg==1){
-            audio.pause();
-        }
-        num -= 1;
-        setTitle();
-        setAudio();
-        if(flg==1){
-            audio.play();
-        }
+    if(flg==1){
+        audio.pause();
+    }
+    num -= 1;
+    setTitle();
+    setAudio();
+    if(flg==1){
+        audio.play();
     }
 };
 
