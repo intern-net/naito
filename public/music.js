@@ -21,3 +21,11 @@ function onMusicClick(){
     imgPath = img.getAttribute("src");
   }
 };
+
+function onBackClick(){
+  audio.play();
+};
+
+function onNextClick(){
+  audio.play();
+};
