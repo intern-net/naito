@@ -52,36 +52,39 @@ db.ref('/voices').once('value', function (snapshot) {
 
 
 //audio再生系
-var genre; //選ぶジャンル
+var now_genre; //選ぶジャンル
+var now_url = [];
+var now_title = [];
+var now_voice = [];
 
 var audio = new Audio();
+var num = 0;
 // audio.src = "audios/sample.wav";
 
 //click時
 $(document).ready(function(){
   $('.category tr td').on('click', function(){
+    now_genre = $(this).attr("id");
+    $("#genre").text(now_genre);
+    $("#title").text(title_hash[now_genre][num]);
+    audio.src = voice_hash[now_genre][num];
     $('#listener').show();
-    genre = $(this).attr("id");
-    $("#genre").text(genre);
-    $("#title").text(title_hash[genre][0]);
-    audio.src = voice_hash[genre][0];
-    });
+});
 });
 
 //再生ボタンclick
 function onMusicClick(){
-  console.log("音楽スタート予定");
   var img = document.getElementById("mid");
   var imgPath = img.getAttribute("src");
   if(imgPath == "images/Start.jpg"){
     document.getElementById("mid").src = "images/stop.png";
     audio.play();
     imgPath = img.getAttribute("src");
-  }else if(imgPath == "images/stop.png"){
+}else if(imgPath == "images/stop.png"){
     document.getElementById("mid").src = "images/Start.jpg";
     audio.pause();
     imgPath = img.getAttribute("src");
-  }
+}
 };
 
 //back button
@@ -91,5 +94,6 @@ function onBackClick(){
 
 //next button
 function onNextClick(){
-  audio.play();
+    num += 1;
+    audio.play();
 };
