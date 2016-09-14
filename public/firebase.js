@@ -141,3 +141,10 @@ function onNextClick(){
         audio.play();
     }
 };
+
+audio.addEventListener("ended", function() {
+    num += 1;
+    setTitle();
+    setAudio();
+    audio.play();
+},false);
